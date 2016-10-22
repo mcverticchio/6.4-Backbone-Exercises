@@ -5814,4 +5814,40 @@ button.close {
 img {
   max-width: 100%; }
 
+html {
+  height: 100%; }
+  html body {
+    background: url("http://www.my-hd-wallpapers.com/download.php?wallpaper=1389013748&dwn=wall/1389013748_old-paper-from-paris-with-love.jpg");
+    background-size: 100% 100%;
+    overflow: none; }
+  html h1 {
+    font-family: 'Amatic SC', cursive;
+    background: #ff9999;
+    display: inline-block;
+    width: 500px;
+    text-align: center;
+    color: #ffe699;
+    margin-left: 300px;
+    border-radius: 5px;
+    padding: 10px; }
+
+.blogListing {
+  font-family: 'Inconsolata', monospace;
+  background: white;
+  display: inline-block;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-left: 150px;
+  opacity: 0.9; }
+  .blogListing .btn-primary {
+    color: black;
+    padding: 10px;
+    width: 150px;
+    background: #ff9999;
+    border: none;
+    box-shadow: 10px 10px 10px #888888; }
+
 /*# sourceMappingURL=app.css.map */

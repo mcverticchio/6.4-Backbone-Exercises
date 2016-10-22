@@ -15,3 +15,57 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 img {
   max-width: 100%;
 }
+
+html{
+  height: 100%;
+  body{
+    background: url('http://www.my-hd-wallpapers.com/download.php?wallpaper=1389013748&dwn=wall/1389013748_old-paper-from-paris-with-love.jpg');
+    // background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: none;
+  }
+  h1{
+    font-family: 'Amatic SC', cursive;
+    background: #ff9999;
+    // background: -webkit-linear-gradient(#00394d, #007399);
+    // background: -o-linear-gradient(#00394d, #007399);
+    // background: linear-gradient(#00394d, #007399);
+    // box-shadow:10px 10px 10px #888888;
+    display: inline-block;
+    width: 500px;
+    text-align: center;
+    color: #ffe699;
+    margin-left: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    // letter-spacing: 5px;
+  }
+}
+
+.blogListing{
+  font-family: 'Inconsolata', monospace;
+  background: white;
+  display: inline-block;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-left: 150px;
+  opacity: 0.9;
+  // background: #ff9999;
+  // background:repeating-linear-gradient(-45deg, #ff9999, #ff9999 5px, white 5px, white 10px);
+  .btn-primary {
+    color: black;
+    padding: 10px;
+    width: 150px;
+    background: #ff9999;
+    // background:repeating-linear-gradient(-45deg, #ff9999, #ff9999 5px, white 5px, white 10px);
+    // border: 1px solid #ff9999;
+    // background: -webkit-linear-gradient(#00394d, #007399);
+    // background: -o-linear-gradient(#00394d, #007399);
+    // background: linear-gradient(#00394d, #007399);
+    border: none;
+    box-shadow:10px 10px 10px #888888;
+  }
+}
