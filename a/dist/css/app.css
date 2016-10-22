@@ -5814,4 +5814,32 @@ button.close {
 img {
   max-width: 100%; }
 
+html {
+  height: 100%; }
+  html header {
+    background: url("https://anovelinwaiting.files.wordpress.com/2015/01/cropped-cropped-vintage-pastel-bookshelf-wallpaper-library2.jpg");
+    background-size: 100% 100%;
+    overflow: none;
+    height: 300px;
+    margin-bottom: 10px; }
+  html h1 {
+    color: white;
+    background: #A89986;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Merriweather', serif;
+    margin-left: 400px;
+    margin-top: 200px; }
+  html .form-group {
+    font-family: 'Merriweather', serif;
+    color: #A89986;
+    font-size: 20px; }
+  html .btn-primary {
+    font-family: 'Merriweather', serif;
+    background: #A89986;
+    border: none;
+    padding: 10px;
+    width: 200px; }
+
 /*# sourceMappingURL=app.css.map */

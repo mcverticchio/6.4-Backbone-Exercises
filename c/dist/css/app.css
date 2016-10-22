@@ -5817,12 +5817,12 @@ img {
 html {
   height: 100%; }
   html body {
-    background: url("http://www.my-hd-wallpapers.com/download.php?wallpaper=1389013748&dwn=wall/1389013748_old-paper-from-paris-with-love.jpg");
+    background: url("http://essenziale-hd.com/wp-content/uploads/2014/05/IMG_47681.gif");
     background-size: 100% 100%;
     overflow: none; }
   html h1 {
     font-family: 'Amatic SC', cursive;
-    background: #ff9999;
+    background: #94BFC3;
     display: inline-block;
     width: 500px;
     text-align: center;
@@ -5833,12 +5833,11 @@ html {
 
 .blogListing {
   font-family: 'Inconsolata', monospace;
-  background: white;
   display: inline-block;
   width: 800px;
   text-align: center;
   margin-bottom: 5px;
-  border: 1px solid grey;
+  border: 1px solid #ffe699;
   border-radius: 5px;
   margin-left: 150px;
   opacity: 0.9; }
@@ -5846,8 +5845,10 @@ html {
     color: black;
     padding: 10px;
     width: 150px;
-    background: #ff9999;
     border: none;
-    box-shadow: 10px 10px 10px #888888; }
+    box-shadow: 10px 10px 10px #888888;
+    background: #94BFC3; }
+  .blogListing h3 {
+    color: #ffe699; }
 
 /*# sourceMappingURL=app.css.map */

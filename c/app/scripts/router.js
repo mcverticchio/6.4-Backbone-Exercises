@@ -22,6 +22,7 @@ var PostRouter = Backbone.Router.extend({
       .append(postListing.render().el);
   },
   displayBlog: function(id){
+    var self = this;
     var blog = this.collection.get(id);
     var blogDetail = new views.PostDisplayView({model: blog});
 

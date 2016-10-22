@@ -106,7 +106,7 @@ module.exports = {
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "\n  <div class=\"form-group\">\n    <label for=\"title\">Title</label>\n    <textarea class=\"form-control\" id=\"title\" rows=\"1\"></textarea>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"body\">Write your post here</label>\n    <textarea class=\"form-control\" id=\"body\" rows=\"3\"></textarea>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n";
+    return "\n  <div class=\"form-group\">\n    <label for=\"title\">Title</label>\n    <textarea class=\"form-control\" id=\"title\" rows=\"1\"></textarea>\n  </div>\n  <div class=\"form-group\">\n    <label for=\"body\">Write your post here</label>\n    <textarea class=\"form-control\" id=\"body\" rows=\"5\"></textarea>\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":26}],6:[function(require,module,exports){

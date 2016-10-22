@@ -15,3 +15,36 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 img {
   max-width: 100%;
 }
+
+html {
+  height: 100%;
+  header{
+    background: url('https://anovelinwaiting.files.wordpress.com/2015/01/cropped-cropped-vintage-pastel-bookshelf-wallpaper-library2.jpg');
+    background-size: 100% 100%;
+    overflow: none;
+    height: 300px;
+    margin-bottom: 10px;
+  }
+  h1{
+    color: white;
+    background: #A89986;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Merriweather', serif;
+    margin-left: 400px;
+    margin-top: 200px;
+  }
+  .form-group{
+    font-family: 'Merriweather', serif;
+    color: #A89986;
+    font-size: 20px;
+  }
+  .btn-primary{
+    font-family: 'Merriweather', serif;
+    background: #A89986;
+    border: none;
+    padding: 10px;
+    width: 200px;
+  }
+}

@@ -53,7 +53,7 @@ var PostItemView = Backbone.View.extend({
   className: 'col-md-12',
   template: postListTemplate,
   // events: {
-  //   'click .btn-primary' : 'postDisplayView'
+  //   'click .btn-primary' : 'PostDisplayView'
   // },
   render: function(){
     var context = this.model.toJSON();
