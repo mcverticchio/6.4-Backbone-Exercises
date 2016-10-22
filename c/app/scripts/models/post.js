@@ -1,15 +1,16 @@
+
 var Backbone = require('backbone');
 
-var Blog = Backbone.Model.extend({
+var Post = Backbone.Model.extend({
   idAttribute: '_id'
 });
 
-var BlogCollection = Backbone.Collection.extend({
-  model: Blog,
+var PostCollection = Backbone.Collection.extend({
+  model: Post,
   url: 'https://tiny-lasagna-server.herokuapp.com/collections/carolinesblogs'
 });
 
 module.exports = {
-  Blog: Blog,
-  BlogCollection: BlogCollection
+  Post: Post,
+  PostCollection: PostCollection
 }

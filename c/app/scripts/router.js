@@ -1,29 +1,29 @@
-var Backbone = require ('backbone');
-var $ = require ('jquery');
-var models = require ('./models/blog.js');
-var views = require ('./views/blog.js');
+var $ = require('jquery');
+var Backbone = require('backbone');
+var models = require('./models/post.js');
+var views = require('./views/post.js');
 
-
-var BlogRouter = Backbone.Router.extend({
+var PostRouter = Backbone.Router.extend({
   routes: {
-    '': 'index',
-    'blog/:id/': 'getBlog',
+    '' : 'index',
   },
   initialize: function(){
-    this.collection = new models.BlogCollection();
-    this.collection.fetch();
+    this.collection = new models.PostCollection();
+
   },
   index: function(){
-    var blogListing = new views.BlogListing({collection: this.collection});
+    var addPostForm = new views.PostAddForm({collection: this.collection});
+    var postListing = new views.PostListing({collection: this.collection});
+    this.collection.fetch();
 
     $('.app')
-      .append(bookListing.render().el);
-  },
-  getBlog: function(id){
-    var self = this;
-    var blog = this.collection.get(id);
+      .html(addPostForm.render().el)
+      .append(postListing.render().el);
   }
 });
-var router = new BlogRouter();
+
+
+
+var router = new PostRouter();
 
 module.exports = router;

@@ -9,7 +9,12 @@ var PostRouter = Backbone.Router.extend({
   },
   initialize: function(){
     this.collection = new models.PostCollection();
-    this.collection.fetch();
+    this.collection.fetch().then(function(){
+      this.collection.each(function(model){
+        model.destroy();
+      })
+    });
+
   },
   index: function(){
     var addPostForm = new views.PostAddForm({collection: this.collection});
