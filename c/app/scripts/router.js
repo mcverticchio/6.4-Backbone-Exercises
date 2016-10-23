@@ -8,19 +8,20 @@ var PostRouter = Backbone.Router.extend({
     '' : 'index',
     'post/:id/' : 'displayBlog'
   },
+
   initialize: function(){
     this.collection = new models.PostCollection();
 
   },
+
   index: function(){
-    // var addPostForm = new views.PostAddForm({collection: this.collection});
     var postListing = new views.PostListing({collection: this.collection});
     this.collection.fetch();
 
     $('.app')
-      // .html(addPostForm.render().el)
       .html(postListing.render().el);
   },
+
   displayBlog: function(id){
 
     var blog = this.collection.get(id);

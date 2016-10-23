@@ -5861,4 +5861,12 @@ html {
     font-family: 'Merriweather', serif;
     font-weight: bold; }
 
+.delete {
+  color: white;
+  font-size: 25px;
+  border: none;
+  background-color: #94BFC3;
+  font-family: 'Dawning of a New Day', cursive;
+  border-radius: 5px; }
+
 /*# sourceMappingURL=app.css.map */

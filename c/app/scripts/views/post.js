@@ -2,36 +2,10 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 
 //TEMPLATE
-// var postAddTemplate = require('../../templates/index.hbs');
 var postListTemplate = require('../../templates/postListing.hbs');
 var blogDisplayTemplate = require('../../templates/blogDisplay.hbs');
+// var modalTemplate = require('../../templates/modal.hbs');
 
-// var PostAddForm = Backbone.View.extend({
-//   tagName: 'form',
-//   className: 'well',
-//   template: postAddTemplate,
-//   events: {
-//     'submit' : 'add'
-//   },
-//   render: function(){
-//     this.$el.html(this.template());
-//
-//     return this;
-//   },
-//   add: function(e){
-//     e.preventDefault();
-//
-//     var newPost = {
-//       title: $('#title').val(),
-//       body: $('#body').val()
-//     };
-//
-//     this.collection.create(newPost);
-//     // console.log(newPost);
-//     $('#title').val('');
-//     $('#body').val('');
-//   }
-// });
 
 
 var PostListing = Backbone.View.extend({
@@ -48,51 +22,68 @@ var PostListing = Backbone.View.extend({
   }
 });
 
+
+
 var PostItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'col-md-4 blogColumns',
   template: postListTemplate,
-  events: {
-    'click .clickme': 'complete',
-    'click .hideme': 'hide'
-  },
-  initialize: function(){
-    this.listenTo(this.model, 'destroy', this.remove);
-    this.listenTo(this.model, 'changed', this.render);
-    this.listenTo(this.model, 'change:visible', this.toggleVisible);
-  },
   render: function(){
     var context = this.model.toJSON();
     var renderedTemplate = this.template(context);
     this.$el.html(renderedTemplate);
 
     return this;
-  },
-
+  }
 });
+
+
 
 var PostDisplayView = Backbone.View.extend({
   tagName: 'div',
   className: 'blogListing',
   template: blogDisplayTemplate,
-  // initialize: function(){
-  //   this.listenTo(this.model, 'click', this.render);
-  // },
+  events: {
+    'click .delete': 'complete'
+  },
   initialize: function(){
-    this.listenTo(this.model, 'changed', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
   },
   render: function(){
     var context = this.model.toJSON();
     this.$el.html(this.template(context));
 
     return this;
+  },
+  complete: function(){
+    confirmModal.model = this.model;
+    confirmModal.show();
   }
-})
+});
 
-// var postDisplayView = new PostDisplayView();
+
+
+var PostConfirmModal = Backbone.View.extend({
+  el: $('#confirm-delete')[0],
+  events: {
+    "click .btn-primary": 'delete',
+  },
+  hide: function(){
+    this.$el.modal('hide');
+  },
+  show: function(){
+    this.$el.modal('show');
+  },
+  delete: function(){
+    this.model.destroy();
+
+    this.hide();
+  }
+});
+
+var confirmModal = new PostConfirmModal();
 
 module.exports = {
-  // PostAddForm: PostAddForm,
   PostListing: PostListing,
   PostItemView: PostItemView,
   PostDisplayView: PostDisplayView

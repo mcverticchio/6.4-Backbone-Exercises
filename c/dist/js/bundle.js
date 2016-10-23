@@ -42,19 +42,20 @@ var PostRouter = Backbone.Router.extend({
     '' : 'index',
     'post/:id/' : 'displayBlog'
   },
+
   initialize: function(){
     this.collection = new models.PostCollection();
 
   },
+
   index: function(){
-    // var addPostForm = new views.PostAddForm({collection: this.collection});
     var postListing = new views.PostListing({collection: this.collection});
     this.collection.fetch();
 
     $('.app')
-      // .html(addPostForm.render().el)
       .html(postListing.render().el);
   },
+
   displayBlog: function(id){
 
     var blog = this.collection.get(id);
@@ -76,36 +77,10 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 
 //TEMPLATE
-// var postAddTemplate = require('../../templates/index.hbs');
 var postListTemplate = require('../../templates/postListing.hbs');
 var blogDisplayTemplate = require('../../templates/blogDisplay.hbs');
+// var modalTemplate = require('../../templates/modal.hbs');
 
-// var PostAddForm = Backbone.View.extend({
-//   tagName: 'form',
-//   className: 'well',
-//   template: postAddTemplate,
-//   events: {
-//     'submit' : 'add'
-//   },
-//   render: function(){
-//     this.$el.html(this.template());
-//
-//     return this;
-//   },
-//   add: function(e){
-//     e.preventDefault();
-//
-//     var newPost = {
-//       title: $('#title').val(),
-//       body: $('#body').val()
-//     };
-//
-//     this.collection.create(newPost);
-//     // console.log(newPost);
-//     $('#title').val('');
-//     $('#body').val('');
-//   }
-// });
 
 
 var PostListing = Backbone.View.extend({
@@ -122,51 +97,68 @@ var PostListing = Backbone.View.extend({
   }
 });
 
+
+
 var PostItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'col-md-4 blogColumns',
   template: postListTemplate,
-  events: {
-    'click .clickme': 'complete',
-    'click .hideme': 'hide'
-  },
-  initialize: function(){
-    this.listenTo(this.model, 'destroy', this.remove);
-    this.listenTo(this.model, 'changed', this.render);
-    this.listenTo(this.model, 'change:visible', this.toggleVisible);
-  },
   render: function(){
     var context = this.model.toJSON();
     var renderedTemplate = this.template(context);
     this.$el.html(renderedTemplate);
 
     return this;
-  },
-
+  }
 });
+
+
 
 var PostDisplayView = Backbone.View.extend({
   tagName: 'div',
   className: 'blogListing',
   template: blogDisplayTemplate,
-  // initialize: function(){
-  //   this.listenTo(this.model, 'click', this.render);
-  // },
+  events: {
+    'click .delete': 'complete'
+  },
   initialize: function(){
-    this.listenTo(this.model, 'changed', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
   },
   render: function(){
     var context = this.model.toJSON();
     this.$el.html(this.template(context));
 
     return this;
+  },
+  complete: function(){
+    confirmModal.model = this.model;
+    confirmModal.show();
   }
-})
+});
 
-// var postDisplayView = new PostDisplayView();
+
+
+var PostConfirmModal = Backbone.View.extend({
+  el: $('#confirm-delete')[0],
+  events: {
+    "click .btn-primary": 'delete',
+  },
+  hide: function(){
+    this.$el.modal('hide');
+  },
+  show: function(){
+    this.$el.modal('show');
+  },
+  delete: function(){
+    this.model.destroy();
+
+    this.hide();
+  }
+});
+
+var confirmModal = new PostConfirmModal();
 
 module.exports = {
-  // PostAddForm: PostAddForm,
   PostListing: PostListing,
   PostItemView: PostItemView,
   PostDisplayView: PostDisplayView
@@ -183,7 +175,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h2>\n    <p class=\"contents\">\n      "
     + alias4(((helper = (helper = helpers.body || (depth0 != null ? depth0.body : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"body","hash":{},"data":data}) : helper)))
-    + "\n    </p>\n\n  </div>\n</div>\n";
+    + "\n    </p>\n    <span class=\"actions\">\n\n    <!-- <button class=\"edit btn btn-xs btn-danger\">Edit Contact</button> -->\n    <button class=\"delete btn btn-xs btn-warning\">Delete</button>\n  </span>\n\n  </div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":27}],6:[function(require,module,exports){
