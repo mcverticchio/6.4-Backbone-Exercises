@@ -5844,19 +5844,21 @@ html {
   margin-top: 20px;
   border-radius: 5px;
   opacity: 0.9; }
-  .blogListing .btn-primary {
-    color: white;
-    padding: 10px;
-    width: 150px;
-    border: none;
-    box-shadow: 10px 10px 10px #888888;
-    background: #94BFC3; }
-  .blogListing h3 {
-    font-family: 'Merriweather', serif;
-    font-weight: bold; }
 
 .blogColumns {
   text-align: center;
   height: 150px; }
+  .blogColumns .btn-primary {
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    width: 150px;
+    border: none;
+    box-shadow: 10px 10px 10px #888888;
+    background-color: #94BFC3;
+    font-family: 'Dawning of a New Day', cursive; }
+  .blogColumns h3 {
+    font-family: 'Merriweather', serif;
+    font-weight: bold; }
 
 /*# sourceMappingURL=app.css.map */

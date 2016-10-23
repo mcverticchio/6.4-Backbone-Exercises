@@ -50,25 +50,27 @@ html{
   margin-top: 20px;
   border-radius: 5px;
   opacity: 0.9;
-    .btn-primary {
+}
+.blogColumns {
+  text-align: center;
+  height: 150px;
+  .btn-primary {
     color: white;
+    font-size: 25px;
     padding: 10px;
     width: 150px;
-    // background:repeating-linear-gradient(-45deg, #ff9999, #ff9999 5px, white 5px, white 10px);
-    // border: 1px solid #ff9999;
-    // background: -webkit-linear-gradient(#00394d, #007399);
-    // background: -o-linear-gradient(#00394d, #007399);
-    // background: linear-gradient(#00394d, #007399);
+  // background:repeating-linear-gradient(-45deg, #ff9999, #ff9999 5px, white 5px, white 10px);
+  // border: 1px solid #ff9999;
+  // background: -webkit-linear-gradient(#00394d, #007399);
+  // background: -o-linear-gradient(#00394d, #007399);
+  // background: linear-gradient(#00394d, #007399);
     border: none;
     box-shadow:10px 10px 10px #888888;
-    background: #94BFC3;
+    background-color: #94BFC3;
+    font-family: 'Dawning of a New Day', cursive;
   }
   h3 {
     font-family: 'Merriweather', serif;
     font-weight: bold;
   }
-}
-.blogColumns {
-  text-align: center;
-  height: 150px;
 }

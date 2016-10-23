@@ -6,7 +6,7 @@ var views = require('./views/post.js');
 var PostRouter = Backbone.Router.extend({
   routes: {
     '' : 'index',
-    'posts/:id' : 'displayBlog'
+    'post/:id/' : 'displayBlog'
   },
   initialize: function(){
     this.collection = new models.PostCollection();
@@ -19,10 +19,10 @@ var PostRouter = Backbone.Router.extend({
 
     $('.app')
       // .html(addPostForm.render().el)
-      .append(postListing.render().el);
+      .html(postListing.render().el);
   },
   displayBlog: function(id){
-    var self = this;
+
     var blog = this.collection.get(id);
     var blogDetail = new views.PostDisplayView({model: blog});
 

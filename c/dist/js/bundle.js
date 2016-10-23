@@ -40,7 +40,7 @@ var views = require('./views/post.js');
 var PostRouter = Backbone.Router.extend({
   routes: {
     '' : 'index',
-    'posts/:id' : 'displayBlog'
+    'post/:id/' : 'displayBlog'
   },
   initialize: function(){
     this.collection = new models.PostCollection();
@@ -53,10 +53,10 @@ var PostRouter = Backbone.Router.extend({
 
     $('.app')
       // .html(addPostForm.render().el)
-      .append(postListing.render().el);
+      .html(postListing.render().el);
   },
   displayBlog: function(id){
-    var self = this;
+
     var blog = this.collection.get(id);
     var blogDetail = new views.PostDisplayView({model: blog});
 
@@ -126,9 +126,15 @@ var PostItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'col-md-4 blogColumns',
   template: postListTemplate,
-  // events: {
-  //   'click .btn-primary' : 'PostDisplayView'
-  // },
+  events: {
+    'click .clickme': 'complete',
+    'click .hideme': 'hide'
+  },
+  initialize: function(){
+    this.listenTo(this.model, 'destroy', this.remove);
+    this.listenTo(this.model, 'changed', this.render);
+    this.listenTo(this.model, 'change:visible', this.toggleVisible);
+  },
   render: function(){
     var context = this.model.toJSON();
     var renderedTemplate = this.template(context);
@@ -141,10 +147,13 @@ var PostItemView = Backbone.View.extend({
 
 var PostDisplayView = Backbone.View.extend({
   tagName: 'div',
-  className: 'contentArea',
+  className: 'blogListing',
   template: blogDisplayTemplate,
+  // initialize: function(){
+  //   this.listenTo(this.model, 'click', this.render);
+  // },
   initialize: function(){
-    this.listenTo(this.model, 'click', this.render);
+    this.listenTo(this.model, 'changed', this.render);
   },
   render: function(){
     var context = this.model.toJSON();
@@ -154,7 +163,7 @@ var PostDisplayView = Backbone.View.extend({
   }
 })
 
-var postDisplayView = new PostDisplayView();
+// var postDisplayView = new PostDisplayView();
 
 module.exports = {
   // PostAddForm: PostAddForm,
@@ -170,11 +179,11 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<h2>"
+  return "<div class=\"row\">\n  <div class=\"col-md-6 col-md-offset-3\">\n\n    <h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h2>\n<p class=\"contents\">\n  "
+    + "</h2>\n    <p class=\"contents\">\n      "
     + alias4(((helper = (helper = helpers.body || (depth0 != null ? depth0.body : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"body","hash":{},"data":data}) : helper)))
-    + "\n</p>\n";
+    + "\n    </p>\n\n  </div>\n</div>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":27}],6:[function(require,module,exports){
@@ -184,11 +193,11 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<div class=\"blogListing\">\n  <h3>"
+  return "\n  <h3>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h3>\n  <p>\n    <a href=\"#/post/"
     + alias4(((helper = (helper = helpers._id || (depth0 != null ? depth0._id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"_id","hash":{},"data":data}) : helper)))
-    + "/\" class=\"btn btn-primary\" role=\"button\">View Post</a>\n  </p>\n</div>\n";
+    + "/\" class=\"btn btn-primary\" role=\"button\">View Post</a>\n  </p>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":27}],7:[function(require,module,exports){

@@ -52,9 +52,15 @@ var PostItemView = Backbone.View.extend({
   tagName: 'div',
   className: 'col-md-4 blogColumns',
   template: postListTemplate,
-  // events: {
-  //   'click .btn-primary' : 'PostDisplayView'
-  // },
+  events: {
+    'click .clickme': 'complete',
+    'click .hideme': 'hide'
+  },
+  initialize: function(){
+    this.listenTo(this.model, 'destroy', this.remove);
+    this.listenTo(this.model, 'changed', this.render);
+    this.listenTo(this.model, 'change:visible', this.toggleVisible);
+  },
   render: function(){
     var context = this.model.toJSON();
     var renderedTemplate = this.template(context);
@@ -67,10 +73,13 @@ var PostItemView = Backbone.View.extend({
 
 var PostDisplayView = Backbone.View.extend({
   tagName: 'div',
-  className: 'contentArea',
+  className: 'blogListing',
   template: blogDisplayTemplate,
+  // initialize: function(){
+  //   this.listenTo(this.model, 'click', this.render);
+  // },
   initialize: function(){
-    this.listenTo(this.model, 'click', this.render);
+    this.listenTo(this.model, 'changed', this.render);
   },
   render: function(){
     var context = this.model.toJSON();
@@ -80,7 +89,7 @@ var PostDisplayView = Backbone.View.extend({
   }
 })
 
-var postDisplayView = new PostDisplayView();
+// var postDisplayView = new PostDisplayView();
 
 module.exports = {
   // PostAddForm: PostAddForm,
