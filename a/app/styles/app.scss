@@ -18,22 +18,29 @@ img {
 
 html {
   height: 100%;
-  header{
-    background: url('https://anovelinwaiting.files.wordpress.com/2015/01/cropped-cropped-vintage-pastel-bookshelf-wallpaper-library2.jpg');
+  body{
     background-size: 100% 100%;
     overflow: none;
+  }
+  header{
+    background: url('https://anovelinwaiting.files.wordpress.com/2015/01/cropped-cropped-vintage-pastel-bookshelf-wallpaper-library2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: white;
+    overflow: none;
+    text-align: center;
     height: 300px;
-    margin-bottom: 10px;
   }
   h1{
-    color: white;
+    margin-left: -10px;
+    margin-right: -10px;
+    height: 49px;
+    padding: 4px;
     background: #A89986;
-    padding: 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-family: 'Merriweather', serif;
-    margin-left: 400px;
-    margin-top: 200px;
+    text-align: center;
+    margin-top: 0px;
+    color: white;
+    font-family: 'Dawning of a New Day', cursive;
   }
   .form-group{
     font-family: 'Merriweather', serif;

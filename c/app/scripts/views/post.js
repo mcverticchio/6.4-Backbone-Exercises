@@ -50,7 +50,7 @@ var PostListing = Backbone.View.extend({
 
 var PostItemView = Backbone.View.extend({
   tagName: 'div',
-  className: 'col-md-12',
+  className: 'col-md-4 blogColumns',
   template: postListTemplate,
   // events: {
   //   'click .btn-primary' : 'PostDisplayView'

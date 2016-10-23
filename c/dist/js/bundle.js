@@ -56,6 +56,7 @@ var PostRouter = Backbone.Router.extend({
       .append(postListing.render().el);
   },
   displayBlog: function(id){
+    var self = this;
     var blog = this.collection.get(id);
     var blogDetail = new views.PostDisplayView({model: blog});
 
@@ -123,10 +124,10 @@ var PostListing = Backbone.View.extend({
 
 var PostItemView = Backbone.View.extend({
   tagName: 'div',
-  className: 'col-md-12',
+  className: 'col-md-4 blogColumns',
   template: postListTemplate,
   // events: {
-  //   'click .btn-primary' : 'postDisplayView'
+  //   'click .btn-primary' : 'PostDisplayView'
   // },
   render: function(){
     var context = this.model.toJSON();

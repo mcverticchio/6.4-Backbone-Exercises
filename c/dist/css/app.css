@@ -5817,38 +5817,46 @@ img {
 html {
   height: 100%; }
   html body {
-    background: url("http://essenziale-hd.com/wp-content/uploads/2014/05/IMG_47681.gif");
     background-size: 100% 100%;
     overflow: none; }
-  html h1 {
-    font-family: 'Amatic SC', cursive;
-    background: #94BFC3;
-    display: inline-block;
-    width: 500px;
+  html header {
+    background: url("http://livinghopefoxlake.com/wp-content/uploads/2013/07/6753-960x250.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: none;
     text-align: center;
-    color: #ffe699;
-    margin-left: 300px;
-    border-radius: 5px;
-    padding: 10px; }
+    height: 300px; }
+  html h1 {
+    margin-top: 0px;
+    background: #94BFC3;
+    margin-left: -10px;
+    margin-right: -10px;
+    height: 49px;
+    padding: 4px;
+    font-family: 'Dawning of a New Day', cursive;
+    color: white;
+    text-align: center; }
 
 .blogListing {
-  font-family: 'Inconsolata', monospace;
   display: inline-block;
-  width: 800px;
   text-align: center;
   margin-bottom: 5px;
-  border: 1px solid #ffe699;
+  margin-top: 20px;
   border-radius: 5px;
-  margin-left: 150px;
   opacity: 0.9; }
   .blogListing .btn-primary {
-    color: black;
+    color: white;
     padding: 10px;
     width: 150px;
     border: none;
     box-shadow: 10px 10px 10px #888888;
     background: #94BFC3; }
   .blogListing h3 {
-    color: #ffe699; }
+    font-family: 'Merriweather', serif;
+    font-weight: bold; }
+
+.blogColumns {
+  text-align: center;
+  height: 150px; }
 
 /*# sourceMappingURL=app.css.map */
