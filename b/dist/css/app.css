@@ -5814,4 +5814,21 @@ button.close {
 img {
   max-width: 100%; }
 
+html {
+  height: 100%; }
+  html body {
+    background: url("https://localsguide.com/wp-content/uploads/2014/07/stock-footage-people-walking-in-city-night-background-pedestrians-walking-in-city-night-with-lights-out-of.jpg");
+    background-size: 100% 100%;
+    overflow: none; }
+  html h1 {
+    background: #337AB7;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    margin-left: 450px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'Bungee Inline', cursive; }
+
 /*# sourceMappingURL=app.css.map */
