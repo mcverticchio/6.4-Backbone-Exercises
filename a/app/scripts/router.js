@@ -9,11 +9,7 @@ var PostRouter = Backbone.Router.extend({
   },
   initialize: function(){
     this.collection = new models.PostCollection();
-    this.collection.fetch().then(function(){
-      this.collection.each(function(model){
-        model.destroy();
-      })
-    });
+    this.collection.fetch()
 
   },
   index: function(){

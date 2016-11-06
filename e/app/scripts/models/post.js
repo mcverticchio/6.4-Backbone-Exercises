@@ -1,5 +1,4 @@
-
-var Backbone = require('backbone');
+var Backbone = require ('backbone');
 
 var Post = Backbone.Model.extend({
   idAttribute: '_id'
@@ -13,4 +12,4 @@ var PostCollection = Backbone.Collection.extend({
 module.exports = {
   Post: Post,
   PostCollection: PostCollection
-};
+}

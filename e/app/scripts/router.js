@@ -1,43 +1,32 @@
-var $ = require('jquery');
 var Backbone = require('backbone');
-var models = require('./models/post.js');
-var views = require('./views/post.js');
+var $ = require('jquery');
+var models = require('./models/post');
+var views = require('./views/post');
 
 var PostRouter = Backbone.Router.extend({
   routes: {
-    '' : 'index',
-    'post/:id/' : 'displayBlog',
-    // 'post/:id/edit/': 'editBlog'
+    '': 'index',
+    'post/:id/' : 'displayBlog'
   },
-
   initialize: function(){
     this.collection = new models.PostCollection();
-
-  },
-
-  index: function(){
-    var postListing = new views.PostListing({collection: this.collection});
     this.collection.fetch();
+  },
+  index: function(){
+    var addPostForm = new views.PostAddForm({collection: this.collection});
+    var postListing = new views.PostListing({collection: this.collection});
 
     $('.app')
-      .html(postListing.render().el);
+      .html(addPostForm.render().el)
+      .append(postListing.render().el)
   },
-
   displayBlog: function(id){
-
     var blog = this.collection.get(id);
     var blogDetail = new views.PostDisplayView({model: blog});
 
     $('.app').html(blogDetail.render().el);
-  },
-
-  // editBlog: function(id){
-  //    var blogForm
-  //
-  // }
+  }
 });
-
-
 
 var router = new PostRouter();
 
